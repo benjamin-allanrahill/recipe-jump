@@ -1,22 +1,23 @@
 // content.js
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.message === "clicked_browser_action") {
-    var $recipeContainer = $("div:regex(id, recipe)");
-    var $container = $("html,body");
-
-    console.log($recipeContainer);
-    $container.animate(
-      {
-        scrollTop:
-          $recipeContainer.offset().top -
-          $container.offset().top +
-          $container.scrollTop(),
-        scrollLeft: 0,
-      },
-      300
-    );
   }
 });
+
+var $recipeContainer = $("div:regex(id, recipe-container)");
+var $container = $("html,body");
+
+// console.log($recipeContainer);
+$container.animate(
+  {
+    scrollTop:
+      $recipeContainer.offset().top -
+      $container.offset().top +
+      $container.scrollTop(),
+    scrollLeft: 0,
+  },
+  300
+);
 
 jQuery.expr[":"].regex = function (elem, index, match) {
   var matchParams = match[3].split(","),
