@@ -1,24 +1,4 @@
 // content.js
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  if (request.message === "clicked_browser_action") {
-  }
-});
-
-var $recipeContainer = $("div:regex(id, recipe-container)");
-var $container = $("html,body");
-
-// console.log($recipeContainer);
-$container.animate(
-  {
-    scrollTop:
-      $recipeContainer.offset().top -
-      $container.offset().top +
-      $container.scrollTop(),
-    scrollLeft: 0,
-  },
-  300
-);
-
 jQuery.expr[":"].regex = function (elem, index, match) {
   var matchParams = match[3].split(","),
     validLabels = /^(data|css):/,
@@ -35,3 +15,25 @@ jQuery.expr[":"].regex = function (elem, index, match) {
     );
   return regex.test(jQuery(elem)[attr.method](attr.property));
 };
+
+var $recipeContainer = $("div:regex(id, recipe-container)");
+
+if ($recipeContainer.offset() !== undefined) {
+  // console.log($recipeContainer);
+  var $container = $("html,body");
+  $container.animate(
+    {
+      scrollTop:
+        $recipeContainer.offset().top -
+        $container.offset().top +
+        $container.scrollTop(),
+      scrollLeft: 0,
+    },
+    100
+  );
+}
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  if (request.message === "clicked_browser_action") {
+  }
+});
