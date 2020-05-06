@@ -5,5 +5,8 @@ hr.rounded {
 
 body {
   background-color: rgb(40, 40, 40);
-  width: 150px;
+}
+
+.row {
+  width: 200px;
 }
