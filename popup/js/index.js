@@ -13,3 +13,11 @@ document.getElementById("bar-button").addEventListener("click", () => {
   };
   chrome.tabs.create(params);
 });
+
+document.getElementById("github-button").addEventListener("click", () => {
+  params = {
+    active: true,
+    url: "https://github.com/benjamin-allanrahill",
+  };
+  chrome.tabs.create(params);
+});
