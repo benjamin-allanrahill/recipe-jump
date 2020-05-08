@@ -5,3 +5,11 @@ document.getElementById("linkedin-button").addEventListener("click", () => {
   };
   chrome.tabs.create(params);
 });
+
+document.getElementById("bar-button").addEventListener("click", () => {
+  params = {
+    active: true,
+    url: "https://benallanrahill.com",
+  };
+  chrome.tabs.create(params);
+});
