@@ -16,10 +16,8 @@ jQuery.expr[":"].regex = function (elem, index, match) {
   return regex.test(jQuery(elem)[attr.method](attr.property));
 };
 
-var $recipeContainer = $("div:regex(id, recipe-container)");
-
-if ($recipeContainer.offset() !== undefined) {
-  // console.log($recipeContainer);
+const scrollTo = ($recipeContainer) => {
+  console.log($recipeContainer);
   var $container = $("html,body");
   $container.animate(
     {
@@ -31,6 +29,17 @@ if ($recipeContainer.offset() !== undefined) {
     },
     100
   );
+};
+
+var $recipeContainer = $("div:regex(id, recipe-container)");
+var $tastyRecipeContainer = $("div:regex(id, tasty-recipe)");
+
+if ($recipeContainer.offset() !== undefined) {
+  console.log("found it");
+  scrollTo($recipeContainer);
+} else if ($tastyRecipeContainer !== undefined) {
+  console.log($tastyRecipeContainer);
+  scrollTo($tastyRecipeContainer);
 }
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
