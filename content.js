@@ -19,16 +19,18 @@ jQuery.expr[":"].regex = function (elem, index, match) {
 const scrollTo = ($recipeContainer) => {
   console.log($recipeContainer);
   var $container = $("html,body");
-  $container.animate(
-    {
-      scrollTop:
-        $recipeContainer.offset().top -
-        $container.offset().top +
-        $container.scrollTop(),
-      scrollLeft: 0,
-    },
-    100
-  );
+  if ($recipeContainer !== undefined) {
+    $container.animate(
+      {
+        scrollTop:
+          $recipeContainer.offset().top -
+          $container.offset().top +
+          $container.scrollTop(),
+        scrollLeft: 0,
+      },
+      100
+    );
+  }
 };
 
 var $recipeContainer = $("div:regex(id, recipe-container)");
