@@ -1,7 +1,16 @@
-.row {
-  width: 400px;
+body {
+  width: 350px;
+  background-color: lightsteelblue;
 }
 
 dl {
   padding: 1em;
+}
+
+.row {
+  padding-left: 20px;
+}
+
+button {
+  padding: 0em;
 }
