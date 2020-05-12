@@ -17,9 +17,9 @@ jQuery.expr[":"].regex = function (elem, index, match) {
 };
 
 const scrollTo = ($recipeContainer) => {
-  console.log($recipeContainer);
+  // console.log($recipeContainer);
   var $container = $("html,body");
-  if ($recipeContainer !== undefined) {
+  if ($recipeContainer.length !== 0) {
     $container.animate(
       {
         scrollTop:
@@ -35,11 +35,18 @@ const scrollTo = ($recipeContainer) => {
 
 var $recipeContainer = $("div:regex(id, recipe-container)");
 var $tastyRecipeContainer = $("div:regex(id, tasty-recipe)");
+console.log("THis is the recipe button");
+var $jumpToRecipe = $("a").filter(() => {
+  var match = $(this).text().match(/^jump/);
+  console.log(match);
+  return match;
+});
+console.log($jumpToRecipe);
 
-if ($recipeContainer.offset() !== undefined) {
+if ($recipeContainer.length !== 0) {
   console.log("found it");
   scrollTo($recipeContainer);
-} else if ($tastyRecipeContainer !== undefined) {
+} else if ($tastyRecipeContainer.length !== 0) {
   console.log($tastyRecipeContainer);
   scrollTo($tastyRecipeContainer);
 }
